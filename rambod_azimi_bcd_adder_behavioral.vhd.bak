@@ -1,0 +1,32 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity rambod_azimi_bcd_adder_behavioral is
+
+port ( A: in std_logic_vector (3 downto 0);
+		 B: in std_logic_vector (3 downto 0);
+		 S   : out std_logic_vector (3 downto 0);
+		 C   : out std_logic);
+		 
+end rambod_azimi_bcd_adder_behavioral;
+
+architecture bcd of rambod_azimi_bcd_adder_behavioral is
+
+	signal Y  : std_logic_vector(4 downto 0);
+	signal X  : std_logic_vector(4 downto 0);
+	signal Sig: std_logic;
+
+	begin
+	
+	X <= ('0' & A) + B;   --behavioral definition of bcd adder using 3 signals
+	
+	Y <= X + 6;
+	
+	Sig <= '1' when X > 9 else '0';
+	
+	S <= X(3 downto 0) when (Sig = '0') else Y(3 downto 0);
+	
+	C <= X(4) when (Sig = '0') else Y(4);
+	
+end bcd;

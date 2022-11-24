@@ -1,0 +1,1 @@
+set_max_delay -from [get_ports <name_of_input_port>] -to [get_ports <name_of_output_port>] <time in nano seconds>

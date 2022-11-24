@@ -1,0 +1,10 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity rambod_azimi_wrapper is
+Port ( A, B : in std_logic_vector(3 downto 0);
+decoded_A : out std_logic_vector(6 downto 0);
+decoded_B : out std_logic_vector(6 downto 0);
+decoded_AplusB : out std_logic_vector(13 downto 0));
+end rambod_azimi_wrapper;
